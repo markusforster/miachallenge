@@ -2,4 +2,5 @@ pandas
 torch
 matplotlib
 transformers
-
+compound_split
+spacy
