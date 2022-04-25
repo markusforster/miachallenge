@@ -7,5 +7,5 @@ The last layer in the decoder is replaced by a linear layer that ouptuts logits 
 It is recommended to use a virtual environment that comprises jupyter-lab or jupyter-notebook.
 In the virtual environment you can install all necessary libraries by:
 ```bash
-> pip install -r requirements
+pip install -r requirements
 ```
