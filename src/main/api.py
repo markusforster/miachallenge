@@ -2,7 +2,7 @@ import torch
 import numpy as np
 import pandas as pd
 
-from fastapi import FastAPI, Body
+from fastapi import FastAPI, Body, HTTPException
 import uvicorn
 from transformers import AutoTokenizer
 
@@ -23,6 +23,9 @@ async def root():
 
 @app.post("/predict_icd")
 async def predict_icd(payload: dict = Body(...)):
+
+    if "payload" not in payload:
+        raise HTTPException(status_code=404, detail="No payload found in Request")
     token = tokenizer(payload["payload"].lower(), max_length=10,
     padding='max_length', truncation=True, return_tensors='pt')
     toke = token.to(device=device)
