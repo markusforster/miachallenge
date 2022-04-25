@@ -1,16 +1,19 @@
 # COMPOUND NOUNS CHALLENGE
 The basic idea for my solution is to split the compound nouns into syllables, create a training set containing all permutations from the syllables together with their labels.
-This training set is used to fine-tune a dilibert word model for German language that is used in the encoder and also in the decoder.
-The last layer in the decoder is replaced by a linear layer that ouptuts logits with the shape of the labels (7 in our case).
+This training set is used to fine-tune a dilibert word model for German language that is used in the encoder.
+The last layer of the classification is replaced by a linear layer that ouptuts logits with the shape of the labels (7 in our case).
 To check the classification probability one can pass the logits to a softmax function.
 
-## Inspect the development
+In my solution, I have used the compound-split library from https://github.com/JoelNiklaus/CompoundSplit. For a production level solution one might have to train a model that is optimized for medical terminology. 
+
+## Inspect the development and build the model
 It is recommended to use a virtual environment that comprises jupyter-lab or jupyter-notebook.
 In the virtual environment you can install all necessary libraries by:
 ```bash
 pip install -r requirements
 ```
 All development steps are sequentially noted in Classify_ICD.ipynb.
+You have to run the complete notebook in order to train the model that is needed for the following steps. Alternatively, you can download the model via https://drive.google.com/file/d/1Ds-xDoH46vFqnMpaYQyoM5OQXgvQ-31j/view?usp=sharing. The model has to be placed in the base directory for this repository.
 
 ## Run Unit Tests and API
 In order to run the unit tests and the API you need a machine with docker and docker-compose installed.
@@ -40,4 +43,4 @@ mia_challenge-api-1   | INFO:     Waiting for application startup.
 mia_challenge-api-1   | INFO:     Application startup complete.
 mia_challenge-api-1   | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 ```
-Now, you should be able to access the API via browser on http://localhost:8000/docs. If your docker is running on a remote machine, please replace localhost by that machines ip address.
+Now, you should be able to access the API via browser on http://localhost:8000/docs. If your docker is running on a remote machine, please replace localhost by that machines ip address. Please put your input in the Request body in the fork {"payload":"whateveryouwanttotry"}.
