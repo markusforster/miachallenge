@@ -1,8 +1,10 @@
 # COMPOUND NOUNS CHALLENGE
 The basic idea for my solution is to split the compound nouns into syllables, create a training set containing all permutations from the syllables together with their labels.
-This training set is used to fine-tune a dilibert word model for German language that is used in the encoder and also in the decoder.
-The last layer in the decoder is replaced by a linear layer that ouptuts logits with the shape of the labels (7 in our case).
+This training set is used to fine-tune a dilibert word model for German language that is used in the encoder.
+The last layer of the classification is replaced by a linear layer that ouptuts logits with the shape of the labels (7 in our case).
 To check the classification probability one can pass the logits to a softmax function.
+
+In my solution, I have used the compound-split library from https://github.com/JoelNiklaus/CompoundSplit. For a production level solution one might have to train a model that is optimized for medical terminology. 
 
 ## Inspect the development and build the model
 It is recommended to use a virtual environment that comprises jupyter-lab or jupyter-notebook.
