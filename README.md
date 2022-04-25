@@ -4,13 +4,14 @@ This training set is used to fine-tune a dilibert word model for German language
 The last layer in the decoder is replaced by a linear layer that ouptuts logits with the shape of the labels (7 in our case).
 To check the classification probability one can pass the logits to a softmax function.
 
-## Inspect the development
+## Inspect the development and build the model
 It is recommended to use a virtual environment that comprises jupyter-lab or jupyter-notebook.
 In the virtual environment you can install all necessary libraries by:
 ```bash
 pip install -r requirements
 ```
 All development steps are sequentially noted in Classify_ICD.ipynb.
+You have to run the complete notebook in order to train the model that is needed for the following steps.
 
 ## Run Unit Tests and API
 In order to run the unit tests and the API you need a machine with docker and docker-compose installed.
