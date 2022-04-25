@@ -8,12 +8,14 @@ from transformers import AutoTokenizer
 
 app = FastAPI()
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
 model = torch.load('../../icd.pt')
 df = pd.read_csv('../../icd.csv',delimiter=';',header=None)
 
 tokenizer = AutoTokenizer.from_pretrained('distilbert-base-german-cased') 
 
-no_to_label = {i:x[1] for i,x in enumerate(df.iloc())}
+no_to_label = {i:x[1].replace(' ','') for i,x in enumerate(df.iloc())}
 
 @app.get("/")
 async def root():
@@ -23,7 +25,7 @@ async def root():
 async def predict_icd(payload: dict = Body(...)):
     token = tokenizer(payload["payload"].lower(), max_length=10,
     padding='max_length', truncation=True, return_tensors='pt')
-    toke = token.to(device='cuda')
+    toke = token.to(device=device)
     output = no_to_label[(np.argmax(model(**token).logits.detach().cpu().numpy()))]
     return output 
     
