@@ -1,10 +1,8 @@
 pandas
 torch
-matplotlib
 transformers
 compound_split
 spacy
-tensorflow-gpu
 fastapi
 uvicorn
 pytest
