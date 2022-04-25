@@ -1,6 +1,6 @@
 # COMPOUND NOUNS CHALLENGE
 The basic idea for my solution is to split the compound nouns into syllables, create a training set containing all permutations from the syllables together with their labels.
-This training set is used to fine-tune a dilibert word model for German language that is used in the encoder.
+This training set is used to fine-tune a distilbert word model for German language that is used in the encoder.
 The last layer of the classification is replaced by a linear layer that ouptuts logits with the shape of the labels (7 in our case).
 To check the classification probability one can pass the logits to a softmax function.
 
