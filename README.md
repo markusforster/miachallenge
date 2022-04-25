@@ -39,3 +39,4 @@ mia_challenge-api-1   | INFO:     Waiting for application startup.
 mia_challenge-api-1   | INFO:     Application startup complete.
 mia_challenge-api-1   | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 ```
+Now, you should be able to access the API via browser on http://localhost:8000/docs. If your docker is running on a remote machine, please replace localhost by that machines ip address.
