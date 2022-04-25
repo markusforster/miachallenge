@@ -1,0 +1,12 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY ./requirements.txt /app/requirements.txt
+COPY ./src/main/api.py /app/api.py
+COPY ./icd.csv /app/icd.csv
+COPY ./icd.pt /app/icd.pt
+
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]

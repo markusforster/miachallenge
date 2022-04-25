@@ -10,8 +10,8 @@ app = FastAPI()
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-model = torch.load('../../icd.pt')
-df = pd.read_csv('../../icd.csv',delimiter=';',header=None)
+model = torch.load('icd.pt',map_location=torch.device('cpu'))
+df = pd.read_csv('icd.csv',delimiter=';',header=None)
 
 tokenizer = AutoTokenizer.from_pretrained('distilbert-base-german-cased') 
 
