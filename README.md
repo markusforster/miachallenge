@@ -11,7 +11,7 @@ In the virtual environment you can install all necessary libraries by:
 pip install -r requirements
 ```
 All development steps are sequentially noted in Classify_ICD.ipynb.
-You have to run the complete notebook in order to train the model that is needed for the following steps.
+You have to run the complete notebook in order to train the model that is needed for the following steps. Alternatively, you can download the model via https://drive.google.com/file/d/1Ds-xDoH46vFqnMpaYQyoM5OQXgvQ-31j/view?usp=sharing. The model has to be placed in the base directory for this repository.
 
 ## Run Unit Tests and API
 In order to run the unit tests and the API you need a machine with docker and docker-compose installed.
