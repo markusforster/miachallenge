@@ -1,13 +1,15 @@
-version: "3.1"
+version: "3.0"
 
 services:
   test:
     build:
+      context: .
       dockerfile: Dockerfile.test
     image: mia_test:latest
 
   api:
     build:
+      context: .
       dockerfile: Dockerfile.api
     image: mia_api:latest
     restart: always
